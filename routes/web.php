@@ -11,29 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('admin.index');
-});
+Route::get('/',[
+    'uses'=>'SuperMarketController@index',
+    'as'=>'/'
+]);
+
+Route::get('/Contact-Us',[
+    'uses'=>'SuperMarketController@contact',
+    'as'=>'contact'
+]);
+
+Route::get('/Groceries',[
+    'uses'=>'SuperMarketController@groceries',
+    'as'=>'groceries'
+]);
 
 
-//Route::get('/a',function (){
-//    $name = 'sanaulla';
-//    return 'Hello '.$name;
-//});
-
-
-//Route::get('/',function(){
-//    return view('admin.context');
-//});
-
-
-//Route::get('/','StudentController@index');
-
-//Route::get('/',[
-//    'uses'=>'StudentController@index',
-//    'as'=>'/'
-//]);
-//Route::get('/',[
-//    'uses'=>'StudentController@create',
-//    'as'=>'/a'
-//]);
