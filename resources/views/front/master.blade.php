@@ -206,7 +206,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </ul>
                     </li>
                     <li><a href="gourmet.html">Gourmet</a></li>
-                    <li><a href="offers.html">Offers</a></li>
+                    <li><a href="{{route('offers')}}">Offers</a></li>
                     <li><a href="{{route('contact')}}">Contact</a></li> {{--GET Request Submit--}}
                 </ul>
             </div>

@@ -22,4 +22,8 @@ class SuperMarketController extends Controller
     public function groceries(){
         return view('front.groceries.groceries');
     }
+
+    public function offers(){
+        return view('front.offers.offers');
+    }
 }

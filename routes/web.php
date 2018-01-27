@@ -27,3 +27,9 @@ Route::get('/Groceries',[
 ]);
 
 
+Route::get('/offers',[
+    'uses'=>'SuperMarketController@offers',
+    'as'=>'offers'
+]);
+
+
