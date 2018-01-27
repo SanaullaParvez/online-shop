@@ -7,6 +7,22 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+
+### To run the projets - 
+    > git clone https://github.com/SanaullaParvez/online-shop.git
+    > Go TO 'online-shop/public' directory from any browser and fix the following error : 
+#### require(vendor/autoload.php): failed to open stream
+    > composer install --no-scripts
+    > composer update
+#### Whoops, looks like something went wrong.
+    > rename .env.example   -> .env
+#### No application encryption key has been specified.
+    > php artisan key:generate
+#### Failed to open stream: Permission denied
+    > php artisan cache:clear
+    > chmod -R 777 storage/    [If Linux]
+    > composer dump-autoload
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
