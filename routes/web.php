@@ -37,3 +37,13 @@ Route::get('/offers',[
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('category/add',[
+    'uses'=>'CategoryController@index',
+    'as'=>'add-category'
+]);
+
+Route::post('category/save',[
+    'uses'=>'CategoryController@saveCategoryInfo',
+    'as'=>'new-category'
+]);
