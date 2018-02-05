@@ -76,3 +76,18 @@ Route::get('category/delete/{id}',[
     'uses'=>'CategoryController@deleteCategoryInfo',
     'as'=>'delete-category'
 ]);
+
+Route::get('brand/add',[
+    'uses'=>'BrandController@index',
+    'as'=>'add-brand'
+]);
+
+Route::get('brand/manage',[
+    'uses'=>'BrandController@manageBrandInfo',
+    'as'=>'manage-brand'
+]);
+
+Route::post('brand/save',[
+    'uses'=>'BrandController@saveBrandInfo',
+    'as'=>'new-brand'
+]);

@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm-10 mx-auto">
                 <div class="card">
-                    <h4 class="text-center font-weight-bold text-success">{{ Session::get('message')}}</h4>
+                    <h4 class="text-center font-weight-bold text-success">{{$message = ''}}</h4>
                     <div class="card-body">
                         <table class="table">
                             <thead class="thead-dark">
