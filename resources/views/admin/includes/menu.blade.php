@@ -23,7 +23,7 @@
                             <a href="{{route('add-category')}}">Add Category</a>
                         </li>
                         <li>
-                            <a href="morris.html">Manage Category</a>
+                            <a href="{{route('manage-category')}}">Manage Category</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

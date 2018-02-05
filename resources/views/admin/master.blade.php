@@ -69,7 +69,7 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="{{asset('/')}}admin/dist/js/sb-admin-2.js"></script>
-
+@yield('script')
 </body>
 
 </html>

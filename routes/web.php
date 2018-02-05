@@ -47,3 +47,32 @@ Route::post('category/save',[
     'uses'=>'CategoryController@saveCategoryInfo',
     'as'=>'new-category'
 ]);
+
+Route::get('category/manage',[
+    'uses'=>'CategoryController@manageCategoryInfo',
+    'as'=>'manage-category'
+]);
+Route::get('category/unpublished/{id}',[
+    'uses'=>'CategoryController@unpublishedCategoryInfo',
+    'as'=>'unpublished-category'
+]);
+
+Route::get('category/published/{id}',[
+    'uses'=>'CategoryController@publishedCategoryInfo',
+    'as'=>'published-category'
+]);
+
+Route::get('category/edit/{id}',[
+    'uses'=>'CategoryController@editCategoryInfo',
+    'as'=>'edit-category'
+]);
+
+Route::post('category/update',[
+    'uses'=>'CategoryController@updateCategoryInfo',
+    'as'=>'update-category'
+]);
+
+Route::get('category/delete/{id}',[
+    'uses'=>'CategoryController@deleteCategoryInfo',
+    'as'=>'delete-category'
+]);
