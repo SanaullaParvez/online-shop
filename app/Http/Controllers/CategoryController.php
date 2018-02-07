@@ -28,8 +28,8 @@ class CategoryController extends Controller
             'category_description' => $request->category_description,
             'publication_status' => $request->publication_status
         ]);
-
-        return 'success';
+        return redirect('/category/add')->with('message','Category Created Successfully');
+//        return 'success';
     }
 
     public function manageCategoryInfo(){

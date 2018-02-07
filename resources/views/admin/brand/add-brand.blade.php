@@ -7,12 +7,14 @@
                     <h3 class="text-success text-center">Add Brand Form</h3>
                 </div>
                 <div class="panel-body">
+                    <h3>{{Session::get('message')}}</h3>
                     <form action="{{route('new-brand')}}" method="post" class="form-horizontal">
                         {{csrf_field()}}
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-3 control-label">Brand Name</label>
                             <div class="col-sm-9">
                                 <input type="text" name="brand_name" class="form-control" id="inputEmail3" placeholder="Brand Name">
+                                <span>{{$errors->has('brand_name') ? $errors->first('brand_name') : ''}}</span>
                             </div>
                         </div>
                         <div class="form-group row">

@@ -91,3 +91,19 @@ Route::post('brand/save',[
     'uses'=>'BrandController@saveBrandInfo',
     'as'=>'new-brand'
 ]);
+
+
+Route::get('product/add',[
+    'uses'=>'ProductController@index',
+    'as'=>'add-product'
+]);
+
+Route::get('product/manage',[
+    'uses'=>'ProductController@manageProductInfo',
+    'as'=>'manage-product'
+]);
+
+Route::post('product/save',[
+    'uses'=>'ProductController@saveProductInfo',
+    'as'=>'new-product'
+]);

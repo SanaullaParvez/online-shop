@@ -7,6 +7,7 @@
                     <h3 class="text-success text-center">Add Category Form</h3>
                 </div>
                 <div class="panel-body">
+                    <h3>{{Session::get('message')}}</h3>
                     <form action="{{route('new-category')}}" method="post" class="form-horizontal">
                         {{csrf_field()}}
                         <div class="form-group row">

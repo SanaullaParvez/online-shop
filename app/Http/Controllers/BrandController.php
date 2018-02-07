@@ -12,11 +12,20 @@ class BrandController extends Controller
     }
 
     public function saveBrandInfo(Request $request){
-        Brand::create($request->all());
+        $this->validate($request,[
+            'brand_name' => 'required|alpha|min:5'
+        ]);
+        $brand = new Brand();
+        $brand->brand_name = $request->brand_name;
+        $brand->brand_description = $request->brand_description;
+        $brand->publication_status = $request->publication_status;
+        $brand->save();
+//        Brand::create($request->all());
         return 'success';
     }
 
     public function manageBrandInfo(){
-        return view('admin.brand.manage-brand');
+        $brands = Brand::all();
+        return view('admin.brand.manage-brand',['brands'=>$brands]);
     }
 }
