@@ -3,16 +3,19 @@
 <div class="container" style="margin-top: 10px;">
     <div class="row">
         <div class="col-sm-10 mx-auto">
-            <div class="card">
-                <div class="card-body">
-                    <h4></h4><br/>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="text-success text-center">Edit Category Form</h3>
+                </div>
+                <div class="panel-body">
+                    <h4>{{Session::get('message')}}</h4><br/>
                     <form action="{{route('update-category')}}" method="post">
                         {{csrf_field()}}
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-3 col-form-label">Category Name</label>
                             <div class="col-sm-9">
                                 <input type="text" name="category_name" class="form-control" id="inputEmail3" placeholder="Category Name" value="{{$category->category_name}}">
-                                <input type="text" name="category_id" class="form-control" id="inputEmail3" placeholder="Category Name" value="{{$category->id}}">
+                                <input type="hidden" name="category_id" class="form-control" id="inputEmail3" placeholder="Category Name" value="{{$category->id}}">
 
                             </div>
                         </div>

@@ -107,3 +107,27 @@ Route::post('product/save',[
     'uses'=>'ProductController@saveProductInfo',
     'as'=>'new-product'
 ]);
+
+Route::get('product/view-product/{id}',[
+    'uses'=>'ProductController@viewProductInfo',
+    'as'=>'view-product'
+]);
+
+Route::get('product/unpublished/{id}',[
+    'uses'=>'ProductController@unpublishedProductInfo',
+    'as'=>'unpublished-product'
+]);
+
+Route::get('product/published/{id}',[
+    'uses'=>'ProductController@publishedProductInfo',
+    'as'=>'published-product'
+]);
+
+Route::get('product/edit-product/{id}',[
+    'uses'=>'ProductController@editProductInfo',
+    'as'=>'edit-product'
+]);
+Route::post('product/update-product',[
+    'uses'=>'ProductController@updateProductInfo',
+    'as'=>'update-product'
+]);

@@ -3,9 +3,11 @@
     <div class="container" style="margin-top: 10px;">
         <div class="row">
             <div class="col-sm-10 mx-auto">
-                <div class="card">
-                    <h4 class="text-center font-weight-bold text-success">{{ Session::get('message')}}</h4>
-                    <div class="card-body">
+                <div class="panel panel-default">
+                    <div class="panel-head">
+                        <h4 class="text-center font-weight-bold text-success">{{ Session::get('message')}}</h4>
+                    </div>
+                    <div class="panel-body">
                         <table class="table">
                             <thead class="thead-dark">
                             <tr>
