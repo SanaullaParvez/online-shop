@@ -82,6 +82,7 @@ Route::get('brand/add',[
     'as'=>'add-brand'
 ]);
 
+
 Route::get('brand/manage',[
     'uses'=>'BrandController@manageBrandInfo',
     'as'=>'manage-brand'
@@ -131,3 +132,37 @@ Route::post('product/update-product',[
     'uses'=>'ProductController@updateProductInfo',
     'as'=>'update-product'
 ]);
+Route::get('product/product-details/{id}',[
+    'uses'=>'SuperMarketController@productDetails',
+    'as'=>'product-details'
+]);
+
+Route::post('cart/add-to-card',[
+    'uses'=>'CardController@addToCard',
+    'as'=>'add-to-card'
+]);
+
+Route::post('cart/update-cart-product',[
+    'uses'=>'CardController@updateCard',
+    'as'=>'update-cart-product'
+]);
+
+Route::get('cart/delete-cart-product/{id}',[
+    'uses'=>'CardController@deleteCart',
+    'as'=>'delete-cart-product'
+]);
+
+Route::get('cart/show',[
+    'uses'=>'CardController@showCart',
+    'as'=>'show-card'
+]);
+Route::get('checkout',[
+    'uses'=>'CheckoutController@index',
+    'as'=>'/checkout'
+]);
+Route::get('/checkout/show-shipping', [
+    'uses'  =>  'CheckoutController@shippingInfo',
+    'as'    =>  'show-shipping'
+]);
+
+

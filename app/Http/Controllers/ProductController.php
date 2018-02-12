@@ -109,4 +109,12 @@ class ProductController extends Controller
         return redirect('/product/manage')->with('message','Product Info Updated Successfully');
     }
 
+    public function deleteProduct(){
+
+    }
+
+
+
+
+
 }

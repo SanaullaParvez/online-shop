@@ -111,23 +111,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     @foreach($categories as $category)
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$category->category_name}}<b class="caret"></b></a>
-                            <ul class="dropdown-menu multi-column columns-3">
-                                <div class="row">
-                                    <div class="multi-gd-img">
-                                        <ul class="multi-column-dropdown">
-                                            <h6>All Groceries</h6>
-                                            <li><a href="{{route('groceries')}}">Dals & Pulses</a></li>
-                                            <li><a href="groceries.html">Almonds</a></li>
-                                            <li><a href="groceries.html">Cashews</a></li>
-                                            <li><a href="groceries.html">Dry Fruit</a></li>
-                                            <li><a href="groceries.html"> Mukhwas </a></li>
-                                            <li><a href="groceries.html">Rice & Rice Products</a></li>
-                                        </ul>
-                                    </div>
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">{{$category->category_name}}</a>
 
-                                </div>
-                            </ul>
                         </li>
                     @endforeach
                     <li><a href="gourmet.html">Gourmet</a></li>
