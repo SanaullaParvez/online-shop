@@ -93,7 +93,7 @@ class ProductController extends Controller
             $directory = 'product_images/';
             $imageUrl = $directory.$imageName;
 //            $productImage->move($directory,$imageName);
-            Image::make($productImage)->save($imageUrl);
+            Image::make($productImage)->resize(250,250)->save($imageUrl);
 
             $product->product_image = $imageUrl;
         }

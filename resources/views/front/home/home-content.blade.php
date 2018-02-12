@@ -3,6 +3,7 @@
     Super Market an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home
 @endsection
 @section('body')
+        {{$name}}
     <!-- main-slider -->
     <ul id="demo1">
         <li>
