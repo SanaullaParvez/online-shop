@@ -14,6 +14,7 @@
                             <tr>
                                 <th scope="col">SL No</th>
                                 <th scope="col">Product Name</th>
+                                <th scope="col">Product Image</th>
                                 <th scope="col">Category Name</th>
                                 <th scope="col">Brand Name</th>
                                 <th scope="col">Product Price</th>
@@ -28,6 +29,7 @@
                                 <tr>
                                     <th scope="row">{{$i++}}</th>
                                     <td>{{$product->product_name}}</td>
+                                    <td><img src="{{asset($product->product_image)}}" alt="Image" width="50" height="50"></td>
                                     <td>{{$product->category_name}}</td>
                                     <td>{{$product->brand_name}}</td>
                                     <td>{{$product->product_price}}</td>

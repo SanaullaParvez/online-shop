@@ -6,7 +6,8 @@ use App\Brand;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Product;
-use DB;
+use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -83,16 +84,17 @@ class ProductController extends Controller
         ]);
     }
     public function updateProductInfo(Request $request){
-//        return $request;
+        $productImage = $request->file('product_image');
         $product = Product::find($request->product_id);
-        if($request->file('product_image')){
-            $productImage = $request->file('product_image');
+        if($productImage){
+            unlink($product->product_image);
+
             $imageName = $productImage->getClientOriginalName();
             $directory = 'product_images/';
             $imageUrl = $directory.$imageName;
-//        $productImage->move($imageUrl);
-            $productImage->move($directory,$imageName);
-            unlink($product->product_image);
+//            $productImage->move($directory,$imageName);
+            Image::make($productImage)->save($imageUrl);
+
             $product->product_image = $imageUrl;
         }
         $product->category_id = $request->category_id;
@@ -104,7 +106,7 @@ class ProductController extends Controller
         $product->long_description = $request->long_description;
         $product->publication_status = $request->publication_status;
         $product->save();
-        return redirect('/product/add')->with('message','Product Info Updated Successfully');
+        return redirect('/product/manage')->with('message','Product Info Updated Successfully');
     }
 
 }
