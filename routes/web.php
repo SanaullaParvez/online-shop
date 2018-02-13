@@ -160,9 +160,34 @@ Route::get('checkout',[
     'uses'=>'CheckoutController@index',
     'as'=>'/checkout'
 ]);
+
+Route::post('checkout/save',[
+    'uses'=>'CheckoutController@saveCustomer',
+    'as'=>'save-customer'
+]);
+
+
+
 Route::get('/checkout/show-shipping', [
     'uses'  =>  'CheckoutController@shippingInfo',
     'as'    =>  'show-shipping'
 ]);
+
+Route::get('/checkout/logout', [
+    'uses'  =>  'CheckoutController@customerLogout',
+    'as'    =>  'customer-logout'
+]);
+
+Route::get('/customer-email-check/{email}', [
+    'uses'  =>  'CheckoutController@customerEmailCheck',
+    'as'    =>  'customer-email-check'
+]);
+
+Route::get('/ajax-product-search/{search}', [
+    'uses'  =>  'CheckoutController@ajaxProductSearch',
+    'as'    =>  'ajax-product-search'
+]);
+
+
 
 

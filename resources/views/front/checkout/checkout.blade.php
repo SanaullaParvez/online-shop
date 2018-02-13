@@ -22,7 +22,8 @@
                 <div class="col-md-6">
                     <h3 class="text-success text-center">Registration Form</h3>
                     <hr/>
-                    <form action="" class="form-horizontal" method="POST">
+                    <form action="{{route('save-customer')}}" class="form-horizontal" method="POST">
+                        {{csrf_field()}}
                         <div class="form-group">
                             <label for="" class="control-label col-md-3">First Name</label>
                             <div class="col-md-9">
@@ -38,7 +39,8 @@
                         <div class="form-group">
                             <label for="" class="control-label col-md-3">E-mail</label>
                             <div class="col-md-9">
-                                <input type="text" name="email_address" id="" class="form-control"/>
+                                <input type="text" name="email_address" id="emailAddress" class="form-control"/>
+                                <h1 id="res"></h1>
                             </div>
                         </div>
                         <div class="form-group">
@@ -61,7 +63,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-9 col-md-offset-3">
-                                <input type="submit" value="Submit" class="btn btn-success">
+                                <input type="submit" value="Submit" class="btn btn-success" id="regBtn">
                             </div>
                         </div>
 
@@ -94,4 +96,24 @@
         </div>
     </div>
     <!-- new -->
+@endsection
+@section('script')
+    <script !src="">
+        var emailAddress = document.getElementById('emailAddress');
+        emailAddress.onblur = function () {
+            var xmlHttp = new XMLHttpRequest();
+            var emailAddress = document.getElementById('emailAddress').value;
+            var serverPage = '{{route('/')}}/customer-email-check/'+emailAddress;
+            xmlHttp.open('GET',serverPage);
+            xmlHttp.onreadystatechange = function (){
+//                alert(xmlHttp.status);
+                if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    document.getElementById('res').innerHTML = xmlHttp.responseText;
+                    document.getElementById('regBtn').disabled = false;
+                    // alert(xmlHttp.responseText);
+                };
+            };
+            xmlHttp.send(null);
+        };
+    </script>
 @endsection

@@ -49,6 +49,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div class="agile-login">
             <ul>
+                @if(Session::get('CustomerId'))
+                    <li><a href="#" onclick="document.getElementById('customerLogoutForm').submit();">{{route('customer-logout')}}</a></li>
+                    <form action="{{route('customer-logout')}}" id="customerLogoutForm">
+                        {{csrf_field()}}
+                    </form>
+                @else
+                    <li><a href="registered.html"> Create Account </a></li>
+                    <li><a href="login.html">Login</a></li>
+                @endif
                 <li><a href="registered.html"> Create Account </a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="contact.html">Help</a></li>
@@ -79,7 +88,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div class="w3l_search">
             <form action="#" method="post">
-                <input type="search" name="Search" placeholder="Search for a Product..." required="">
+                <input type="search" name="Search" placeholder="Search for a Product..." id="searchProduct">
                 <button type="submit" class="btn btn-default search" aria-label="Left Align">
                     <i class="fa fa-search" aria-hidden="true"> </i>
                 </button>
@@ -126,7 +135,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- //navigation -->
 
-@yield('body')
+<div id="body">
+    @yield('body')
+</div>
 
 <!-- //footer -->
 <div class="footer">
@@ -244,6 +255,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     });
 </script>
+<script>
+    document.getElementById('searchProduct').onkeyup = function () {
+        var xmlHttp = new XMLHttpRequest();
+        var searchProductValue = document.getElementById('searchProduct').value;
+        var serverPage = '{{route('/')}}/ajax-product-search/'+searchProductValue;
+        xmlHttp.open('GET',serverPage);
+        xmlHttp.onreadystatechange = function (){
+//                alert(xmlHttp.status);
+            if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                document.getElementById('body').innerHTML = xmlHttp.responseText;
+                // alert(xmlHttp.responseText);
+            };
+        };
+        xmlHttp.send(null);
+
+    }
+</script>
+@yield('script')
 <!-- //main slider-banner -->
 </body>
 </html>
