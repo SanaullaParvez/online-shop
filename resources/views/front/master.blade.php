@@ -50,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="agile-login">
             <ul>
                 @if(Session::get('CustomerId'))
-                    <li><a href="#" onclick="document.getElementById('customerLogoutForm').submit();">{{route('customer-logout')}}</a></li>
+                    <li><a href="{{route('customer-logout')}}" onclick="document.getElementById('customerLogoutForm').submit();">Logout</a></li>
                     <form action="{{route('customer-logout')}}" id="customerLogoutForm">
                         {{csrf_field()}}
                     </form>
@@ -65,11 +65,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </ul>
         </div>
         <div class="product_list_header">
-            <form action="#" method="post" class="last">
-                <input type="hidden" name="cmd" value="_cart">
-                <input type="hidden" name="display" value="1">
-                <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-            </form>
+            {{--<form action="#" method="post" class="last">--}}
+                {{--<input type="hidden" name="cmd" value="_cart">--}}
+                {{--<input type="hidden" name="display" value="1">--}}
+                {{--<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>--}}
+            {{--</form>--}}
+            <a href="{{route('show-card')}}">Show Cart</a>
         </div>
         <div class="clearfix"> </div>
     </div>

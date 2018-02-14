@@ -29,6 +29,8 @@
 
                     <th>Action</th>
                 </tr>
+                @php($subtotal = 0)
+                {{$subtotal = 0}}
                 @foreach($carts as $cart)
                     <tr>
                         <td>{{$cart->id}}</td>
@@ -43,15 +45,17 @@
                                 <button type="submit">Update</button>
                             </form>
                         </td>
-                        <td>{{$cart->subtotal}}</td>
+                        <td>{{$subtotal = $cart->subtotal}}</td>
                         <td><a href="{{route('delete-cart-product',['id'=>$cart->rowId])}}">Delete</a></td>
                     </tr>
                 @endforeach
+                @php(Session::put('grandTotal',$subtotal))
+                {{--{{Session::put('grandTotal',$subtotal)}}--}}
             </table>
             <table class="table table-border">
                 <tr>
                     <th>Total Price</th>
-                    <td></td>
+                    <td>{{Session::get('grandTotal')}}</td>
                 </tr>
                 <tr>
                     <th>Vat</th>
@@ -63,7 +67,13 @@
                 </tr>
             </table>
             <a href="{{route('/')}}" class="btn btn-success pull-left">Continue Shopping</a>
-            <a href="{{route('/checkout')}}" class="btn btn-success pull-right">Checkout</a>
+            @if(Session::get('CustomerId') && Session::get('ShippingId'))
+                <a href="{{route('payment-info')}}" class="btn btn-success pull-right">payment Info</a>
+            @elseif(Session::get('CustomerId'))
+                <a href="{{route('show-shipping')}}" class="btn btn-success pull-right">Show Shipping</a>
+            @else
+                <a href="{{route('/checkout')}}" class="btn btn-success pull-right">Checkout</a>
+            @endif
             <!-- new -->
         </div>
     </div>

@@ -168,6 +168,13 @@ Route::post('checkout/save',[
 
 
 
+Route::get('checkout/complete-order',[
+    'uses'=>'CheckoutController@completeOrder',
+    'as'=>'complete-order'
+]);
+
+
+
 Route::get('/checkout/show-shipping', [
     'uses'  =>  'CheckoutController@shippingInfo',
     'as'    =>  'show-shipping'
@@ -188,6 +195,29 @@ Route::get('/ajax-product-search/{search}', [
     'as'    =>  'ajax-product-search'
 ]);
 
+Route::get('/checkout/payment-info', [
+    'uses'  =>  'CheckoutController@showPaymentInfo',
+    'as'    =>  'payment-info'
+]);
 
+Route::post('shipping/save-shipping',[
+    'uses'=>'CheckoutController@saveShippingInfo',
+    'as'=>'new-shipping'
+]);
+
+Route::post('shipping/new-order',[
+    'uses'=>'CheckoutController@saveOrderInfo',
+    'as'=>'new-order'
+]);
+
+Route::get('/manage-order', [
+    'uses'  =>  'OrderController@manageOrderInfo',
+    'as'    =>  'manage-order'
+]);
+
+Route::get('/view-order-order', [
+    'uses'  =>  'OrderController@viewOrderInfo',
+    'as'    =>  'view-order-details'
+]);
 
 
