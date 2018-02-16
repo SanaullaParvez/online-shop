@@ -215,9 +215,19 @@ Route::get('/manage-order', [
     'as'    =>  'manage-order'
 ]);
 
-Route::get('/view-order-order', [
+Route::get('/view-order-order/{id}', [
     'uses'  =>  'OrderController@viewOrderInfo',
     'as'    =>  'view-order-details'
+]);
+
+Route::get('/view-order-invoice/{id}', [
+    'uses'  =>  'OrderController@viewOrderInvoice',
+    'as'    =>  'view-order-invoice'
+]);
+
+Route::get('/download-order-invoice/{id}', [
+    'uses'  =>  'OrderController@downloadOrderInvoice',
+    'as'    =>  'download-order-invoice'
 ]);
 
 

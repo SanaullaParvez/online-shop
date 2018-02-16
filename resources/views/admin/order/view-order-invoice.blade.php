@@ -31,21 +31,21 @@
                                     <td>{{$order->payment_type}}</td>
                                     <td>{{$order->payment_status}}</td>
                                     <td>
-                                        <a href="{{route('view-order-details',['id'=>$order->id])}}" class="btn btn-info btn-xs" title="View Order Details">
+                                        <a href="{{route('unpublished-category',['id'=>$order->id])}}" class="btn btn-info btn-xs" title="View Order Details">
                                             <span class="glyphicon glyphicon-zoom-in"></span>
                                         </a>
-                                        <a href="{{route('view-order-invoice',['id'=>$order->id])}}" class="btn btn-warning btn-xs" title="View Order Invoice">
+                                        <a href="{{route('published-category',['id'=>$order->id])}}" class="btn btn-warning btn-xs" title="View Order Invoice">
                                             <span class="glyphicon glyphicon-zoom-out"></span>
                                         </a>
-                                        <a href="{{route('download-order-invoice',[$order->id])}}" class="btn btn-info btn-xs" title="Download Order Invoice">
+                                        <a href="{{route('edit-category',[$order->id])}}" class="btn btn-info btn-xs" title="Download Order Invoice">
                                             <span class="glyphicon glyphicon-edit"></span>
                                         </a>
-                                        <a href="" class="btn btn-info btn-xs" title="Download Order Invoice">
+                                        <a href="{{route('view-order-invoice',[$order->id])}}" class="btn btn-info btn-xs" title="Download Order Invoice">
                                             <span class="glyphicon glyphicon-download"></span>
                                         </a>
                                         <a
                                                 class="btn btn-info btn-xs"
-                                                href=""
+                                                href="{{route('delete-category',[$order->id])}}"
                                                 onclick="return confirm('Are You Sure ?')">
                                             <span class="glyphicon glyphicon-trash"></span>
                                         </a>

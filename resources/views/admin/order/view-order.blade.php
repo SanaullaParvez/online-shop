@@ -12,7 +12,7 @@
                             <h3>{{ Session::get('message')}}</h3>
                             <tr>
                                 <th scope="col">Product Name</th>
-                                <td>{{}}</td>
+                                <td>{{$order->id}}</td>
                             </tr>
                         </table>
                     </div>
@@ -30,7 +30,7 @@
                             <h3>{{ Session::get('message')}}</h3>
                             <tr>
                                 <th scope="col">Product Name</th>
-                                <td>{{}}</td>
+                                <td>{{$order->id}}</td>
                             </tr>
                         </table>
                     </div>
